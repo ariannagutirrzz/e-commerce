@@ -7,7 +7,8 @@ import MyOrders from '../MyOrders/index'
 import SignUp from '../SignUp/index'
 import NotFound from '../NotFound/index'
 import Home from '../Home/index'
-import '../App/App.css'
+import NavBar from '../../components/Navbar'
+import './App.css'
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -27,10 +28,10 @@ const App = () => {
   return (
     <>
       <div className='text-3xl font-bold underline bg-red-900'>
-       folders
       </div>
       <BrowserRouter>
         <AppRoutes/>
+        <NavBar/>
       </BrowserRouter>
 
     </>

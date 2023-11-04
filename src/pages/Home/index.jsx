@@ -1,13 +1,11 @@
-function Home() {
+import Layout from "../../components/Layout";
 
-    return (
-      <>
-        <div className='text-3xl font-bold underline bg-red-900'>
-         Home
-        </div>
-        
-      </>
-    )
-  }
-  
-  export default Home
+function Home() {
+  return (
+    <>
+      <Layout>Home</Layout>
+    </>
+  );
+}
+
+export default Home;

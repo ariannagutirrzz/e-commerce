@@ -1,13 +1,11 @@
-function MyAccount() {
+import Layout from "../../components/Layout";
 
-    return (
-      <>
-        <div className='text-3xl font-bold underline bg-red-900'>
-         my account
-        </div>
-        
-      </>
-    )
-  }
-  
-  export default MyAccount
+function MyAccount() {
+  return (
+    <>
+      <Layout>My account</Layout>
+    </>
+  );
+}
+
+export default MyAccount;

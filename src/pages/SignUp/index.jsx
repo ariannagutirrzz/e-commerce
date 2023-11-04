@@ -1,13 +1,11 @@
-function SignUp() {
+import Layout from "../../components/Layout";
 
-    return (
-      <>
-        <div className='text-3xl font-bold underline bg-red-900'>
-         sign up 
-        </div>
-        
-      </>
-    )
-  }
-  
-  export default SignUp 
+function SignUp() {
+  return (
+    <>
+      <Layout>Sign Up</Layout>
+    </>
+  );
+}
+
+export default SignUp;

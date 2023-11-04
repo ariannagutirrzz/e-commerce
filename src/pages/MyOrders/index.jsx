@@ -1,13 +1,11 @@
-function MyOrders() {
+import Layout from "../../components/Layout";
 
-    return (
-      <>
-        <div className='text-3xl font-bold underline bg-red-900'>
-         my orders
-        </div>
-        
-      </>
-    )
-  }
-  
-  export default MyOrders 
+function MyOrders() {
+  return (
+    <>
+      <Layout>My orders</Layout>
+    </>
+  );
+}
+
+export default MyOrders;

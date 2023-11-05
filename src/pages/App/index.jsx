@@ -1,6 +1,6 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
 
-import { cartProvider } from "../../useContext";
+import { CartProvider } from "../../components/Context/Context";
 import MyAccount from "../MyAccount/index";
 import MyOrder from "../MyOrder/index";
 import MyOrders from "../MyOrders/index";
@@ -22,16 +22,16 @@ const AppRoutes = () => {
 
   return routes;
 };
-
+CartProvider
 const App = () => {
   return (
     <>
-      <cartProvider>
+      <CartProvider>
         <BrowserRouter>
           <AppRoutes />
           <NavBar />
         </BrowserRouter>
-      </cartProvider>
+      </CartProvider>
     </>
   );
 };

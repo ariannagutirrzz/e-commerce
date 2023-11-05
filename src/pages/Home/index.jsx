@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import Card from "../../components/Cards";
-
+import { getApi } from "../../Api-services/fakestore";
 function Home() {
   const [items, setItems] = useState(null);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-            .then(response => response.json())
-            .then(data => console.log(setItems(data)))
+   const getData = async() => {
+    const data = await getApi();
+    setItems(data)
+   }; 
+   getData();
   }, []);
 
   return (

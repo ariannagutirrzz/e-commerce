@@ -113,7 +113,7 @@ const NavBar = () => {
                     className={({ isActive }) => 
                     isActive ? activeStyle : undefined
                 }>
-                        <div className="flex "><img src="src/assets/bag-alt.svg" alt="" />0{context.count}</div> 
+                        <div className="flex "><img src="src/assets/bag.svg" alt="" />0{context.count}</div> 
                     </NavLink>
                 </li>
                

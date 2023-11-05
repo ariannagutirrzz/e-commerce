@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import Card from "../../components/Cards";
 import { getApi } from "../../Api-services/fakestore";
+import ProductDetail from "../../components/ProductDetail";
 function Home() {
   const [items, setItems] = useState(null);
 
@@ -22,6 +23,7 @@ function Home() {
           return <Card key={item.id} data={item} />;
         })}
        </div>
+        <ProductDetail/>
       </Layout>
     </>
   );

@@ -1,5 +1,6 @@
 import { CartContext } from "../Context/Context";
 import { useContext } from "react";
+import plus from "../../assets/plus.svg" 
 
 const Card = ({data}) => {
 const context = useContext(CartContext)
@@ -9,16 +10,21 @@ const showProduct = (productDetail) => {
   context.setProductToShow(productDetail)
 }
 
+const addProductsToCart = (productData) => {
+  context.setCount(context.count + 1)
+  context.setCarProducts([...context.cartProducts, productData])
+}
+ 
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg " 
     onClick={()=> showProduct(data)}>
       <figure className="relative w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg  text-black text-xs m-2 px-3 py-0.5">{data.category}</span>
         <img className="w-full h-full object-cover rounded-lg rounded-b-none" src={data.image} alt="valorant" />
-        <div 
-        className="absolute top-0 right-0 flex justify-center items-center bg-white/80 w-6 h-6 m-2 p-1 rounded-lg"
-        onClick={() => context.setCount(context.count + 1)}>
-            +
+        <div onClick={() => addProductsToCart(data)
+            }
+        className="absolute top-0 right-0 flex justify-center items-center bg-white/80 w-6 h-6 m-2 p-1 rounded-lg">
+            <img src={plus} alt="" />
         </div>
       </figure> 
       <p className="flex justify-between items-center rounded-lg rounded-t-none bg-black/10 px-2 h-18">

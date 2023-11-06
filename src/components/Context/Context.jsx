@@ -16,6 +16,9 @@ export const CartProvider = ({ children }) => {
 
   const [productToShow, setProductToShow] = useState({})
 
+  //Shopping cart - Add products to cart
+  const [cartProducts, setcartProducts] = useState([])
+
   return (
     <CartContext.Provider value={{
         count,
@@ -24,7 +27,9 @@ export const CartProvider = ({ children }) => {
         closeProduct,
         isProductOpen,
         productToShow,
-        setProductToShow
+        setProductToShow,
+        cartProducts,
+        setcartProducts
       }}
     >
       {children}

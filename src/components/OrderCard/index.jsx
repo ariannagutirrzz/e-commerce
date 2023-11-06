@@ -1,7 +1,7 @@
 import icon from "../../assets/x.svg"
 
 const OrderCard = props => {
-    const {id,title,image,price} = props;
+    const {id,title,image,price, deleteItem} = props;
   return (
     <div className="flex justify-between items-center mb-4">
       <div className="flex items-center gap-2">
@@ -12,7 +12,7 @@ const OrderCard = props => {
       </div>
       <div className="flex items-center gap-2">
         <p className="text-lg font-medium">${price}</p>
-        <img className="h-6 w-6 cursor-pointer" src={icon} alt="" />
+        <img className="h-6 w-6 cursor-pointer" onClick={() => deleteItem(id)} src={icon} alt="" />
       </div>
     </div>
   );

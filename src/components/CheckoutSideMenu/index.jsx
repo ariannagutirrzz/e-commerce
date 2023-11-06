@@ -5,8 +5,11 @@ import { CartContext } from "../Context/Context";
 import OrderCard from "../OrderCard";
 const CheckoutSideMenu = () => {
   const context = useContext(CartContext);
-  console.log("effe:" + context.productToShow)
 
+  const deleteItem = (id) => {
+    const filteredProducts = context.cartProducts.filter(product => product.id != id)
+    context.setCartProducts(filteredProducts)
+  }
   return (
     <aside
       className={`${
@@ -23,9 +26,11 @@ const CheckoutSideMenu = () => {
       {context.cartProducts.map(product => (
         <OrderCard 
         key={product.id}
+        id={product.id}
         title={product.title}
         image={product.image}
         price={product.price}
+        deleteItem={deleteItem}
         />
       ))
       }

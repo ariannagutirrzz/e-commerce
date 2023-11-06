@@ -1,10 +1,12 @@
 import "./styles.css";
+import React from "react";
 import closeIcon from "../../assets/x.svg";
 import { useContext } from "react";
 import { CartContext } from "../Context/Context";
 const ProductDetail = () => {
   const context = useContext(CartContext);
-  console.log("effe:" + context.productToShow)
+  const [cart, setCart] = useState({});
+
   return (
     <aside
       className={`${

@@ -13,6 +13,19 @@ const CheckoutSideMenu = () => {
     );
     context.setCartProducts(filteredProducts);
   };
+
+  const handleCheckout = () => {
+    const orderToAdd = {
+      date: '01.02.23',
+      products: context.cartProducts,
+      totalProducts: context.cartProducts.length,
+      totalPrice: totalPrice(context.cartProducts)
+    }
+
+    context.setOrder([...context.order, orderToAdd])
+    context.setCartProducts([])
+
+  }
   return (
     <aside
       className={`${
@@ -30,7 +43,7 @@ const CheckoutSideMenu = () => {
           />
         </div>
       </div>
-      <div className="px-6">
+      <div className="px-6 flex-1">
         {context.cartProducts.map((product) => (
           <OrderCard
             key={product.id}
@@ -42,11 +55,14 @@ const CheckoutSideMenu = () => {
           />
         ))}
       </div>
-      <div className="px-6">
-            <p className="flex justify-between items-center">
+      <div className="px-6 mb-6">
+            <p className="flex justify-between items-center mb-2">
                 <span className="font-light text-2xl">Total:</span>
                 <span className="font-medium text-2xl">{totalPrice(context.cartProducts)}</span>
             </p>
+            <button className="w-full bg-black py-3 text-white rounded-lg " onClick={() => handleCheckout()}>
+            Checkout
+            </button>
       </div>
     </aside>
   );

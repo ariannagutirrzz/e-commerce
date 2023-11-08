@@ -9,20 +9,21 @@ import "./styles.css";
 const CheckoutSideMenu = () => {
   const context = useContext(CartContext);
 
-  const deleteItem = (id) => {
+  const deleteItem = (i) => {
     const filteredProducts = context.cartProducts.filter(
-      (product) => product.id != id
+      (product,index) => index != i
     );
+    context.setCount(context.count - 1);
     context.setCartProducts(filteredProducts);
   };
 
   const handleCheckout = () => {
-    context.closeCheckoutMenu()
+    context.closeCheckoutMenu();
     const orderToAdd = {
       date: "01.02.23",
       products: context.cartProducts,
       totalProducts: context.cartProducts.length,
-      totalPrice: totalPrice(context.cartProducts),
+      // totalPrice: totalPrice(context.cartProducts),
     };
 
     context.setOrder([...context.order, orderToAdd]);
@@ -46,14 +47,15 @@ const CheckoutSideMenu = () => {
         </div>
       </div>
       <div className="px-6 flex-1">
-        {context.cartProducts.map((product) => (
+        {context.cartProducts.map((product,index) => (
           <OrderCard
-            key={product.id}
+            key={index}
             id={product.id}
             title={product.title}
             image={product.image}
             price={product.price}
             deleteItem={deleteItem}
+            index={index}
           />
         ))}
       </div>

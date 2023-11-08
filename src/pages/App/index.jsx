@@ -24,16 +24,16 @@ const AppRoutes = () => {
 
   return routes;
 };
-CartProvider
+CartProvider;
 const App = () => {
   return (
-      <CartProvider>
-        <BrowserRouter>
-          <AppRoutes />
-          <NavBar />
-          <CheckoutSideMenu/>
-        </BrowserRouter>
-      </CartProvider>
+    <CartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <NavBar />
+        <CheckoutSideMenu />
+      </BrowserRouter>
+    </CartProvider>
   );
 };
 

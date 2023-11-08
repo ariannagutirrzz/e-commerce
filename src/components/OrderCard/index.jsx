@@ -1,15 +1,14 @@
 import icon from "../../assets/x.svg";
 
 const OrderCard = (props) => {
-  const { id, title, image, price, deleteItem } = props;
-  let renderIcon = null; // Inicializa renderIcon como nulo
+  const { id, title, image, price, deleteItem, index } = props;
+  let renderIcon = null;
 
   if (deleteItem) {
-    // Si deleteItem está definido, muestra el icono de eliminación
     renderIcon = (
       <img
         className="h-6 w-6 cursor-pointer"
-        onClick={() => deleteItem(id)}
+        onClick={() => deleteItem(index)}
         src={icon}
         alt="Delete"
       />
@@ -18,17 +17,18 @@ const OrderCard = (props) => {
 
   return (
     <div className="flex justify-between items-center mb-4">
+      <figure className="w-20 h-20 max-w-full"> 
+        <img
+          className="w-full h-full rounded-lg object-cover"
+          src={image}
+          alt={title}
+        />
+      </figure>
       <div className="flex items-center gap-2">
-        <figure className="w-20 h-20">
-          <img
-            className="w-full h-full rounded-lg object-cover truncate"
-            src={image}
-            alt={title}
-          />
-        </figure>
-        <p className="text-sm font-light">{title}</p>
-      </div>
-      <div className="flex items-center gap-2">
+        <p className="text-sm font-light overflow-hidden overflow-ellipsis whitespace-nowrap max-w-[10rem] mx-0.5">
+          
+          {title}
+        </p>
         <p className="text-lg font-medium">${price}</p>
         {renderIcon}
       </div>

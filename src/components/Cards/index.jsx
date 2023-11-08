@@ -32,7 +32,7 @@ const Card = ({ data }) => {
         <img
           className="w-full h-full object-cover rounded-lg rounded-b-none"
           src={data.image}
-          alt="valorant"
+          alt="product-image"
         />
         <div
           onClick={(event) => addProductsToCart(event, data)}

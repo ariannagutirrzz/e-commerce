@@ -18,12 +18,16 @@ const CheckoutSideMenu = () => {
   };
 
   const handleCheckout = () => {
+    // const date = newDate();
+
     context.closeCheckoutMenu();
     const orderToAdd = {
-      date: "01.02.23",
+      // date: date.toLocalDateString(),
+      date: "12.06.23",
+
       products: context.cartProducts,
       totalProducts: context.cartProducts.length,
-      // totalPrice: totalPrice(context.cartProducts),
+      totalPrice: totalPrice(context.cartProducts),
     };
 
     context.setOrder([...context.order, orderToAdd]);

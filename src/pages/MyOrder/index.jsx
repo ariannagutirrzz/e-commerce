@@ -7,7 +7,13 @@ import arrow from "../../assets/arrow-left.svg"
 
 function MyOrder() {
   const context = useContext(CartContext);
-  const latestProduct = context.order?.slice(-1)[0].products;
+  const currentPath = window.location.pathname;
+  let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
+  if(index === "last") {
+    index = context.order?.length - 1
+  }
+
+  const latestProduct = context.order?.[index]?.products;
 
   return (
     <>
@@ -23,7 +29,7 @@ function MyOrder() {
           <h1> My order</h1>
         </div>
         <div className="flex flex-col w-80">
-          {latestProduct.map((product) => (
+          {latestProduct.map(product => (
             <OrderCard
               key={product.id}
               id={product.id}
